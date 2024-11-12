@@ -196,7 +196,7 @@ public class GestionarArticulo {
      * @param stock
      * @return
      */
-    public boolean actualizarArticulo(int id, String nombre, String descripcion, double precio, int stock) {
+      public boolean editarArticulo(int id, String nombre, String descripcion, double precio, int stock, String nombreImagen, byte[] imagen) {
         boolean articuloEditado = false;
         Connection conexion = null;
         PreparedStatement stmt = null;
@@ -206,15 +206,17 @@ public class GestionarArticulo {
             conexion = Conectar.getConexion();
 
             // Crear la consulta SQL para actualizar el artículo
-            String sql = "UPDATE articulos SET nombre = ?, descripcion = ?, precio = ?, cantidad_stock = ? WHERE id = ?";
+            String sql = "UPDATE articulos SET nombre = ?, descripcion = ?, precio = ?, cantidad_stock = ?, nombre_imagen = ?, imagen = ? WHERE id = ?";
 
             // Preparar la declaración
             stmt = conexion.prepareStatement(sql);
-            stmt.setString(1, nombre);            // Establecer el nuevo nombre
-            stmt.setString(2, descripcion);       // Establecer la nueva descripción
-            stmt.setDouble(3, precio);            // Establecer el nuevo precio
-            stmt.setInt(4, stock);                // Establecer el nuevo stock
-            stmt.setInt(5, id);                   // Establecer el id del artículo a editar
+            stmt.setString(1, nombre);              // Establecer el nuevo nombre
+            stmt.setString(2, descripcion);         // Establecer la nueva descripción
+            stmt.setDouble(3, precio);              // Establecer el nuevo precio
+            stmt.setInt(4, stock);                  // Establecer el nuevo stock
+            stmt.setString(5, nombreImagen);        // Establecer el nuevo nombre de la imagen
+            stmt.setBytes(6, imagen);               // Establecer la nueva imagen
+            stmt.setInt(7, id);                     // Establecer el id del artículo a editar
 
             // Ejecutar la consulta
             int filasAfectadas = stmt.executeUpdate();
@@ -241,5 +243,6 @@ public class GestionarArticulo {
 
         return articuloEditado;
     }
+
 
 }

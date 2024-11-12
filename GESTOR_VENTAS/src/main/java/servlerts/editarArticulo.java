@@ -1,12 +1,16 @@
 package servlerts;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.nio.file.Paths;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import mundo.GestionarArticulo;
 
 /**
@@ -14,7 +18,10 @@ import mundo.GestionarArticulo;
  * @author Usuario 1
  */
 @WebServlet(name = "editarArticulo", urlPatterns = {"/editarArticulo"})
+    @MultipartConfig(maxFileSize = 1024 * 1024 * 10)
 public class editarArticulo extends HttpServlet {
+
+    GestionarArticulo gestiona = new GestionarArticulo();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -29,27 +36,38 @@ public class editarArticulo extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-    int id = 0;
-    GestionarArticulo gestiona = new GestionarArticulo();
+
             
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idProducto = request.getParameter("idArticuloEditar");
+         String idProducto = request.getParameter("idEditar");
         String nombre = request.getParameter("nombreEditar");
         String descripcion = request.getParameter("descripcionEditar");
         String precio = request.getParameter("precioEditar");
-        String cantidad = request.getParameter("cantidadEditar");
+        String cantidad = request.getParameter("stockEditar");
+        Part imagen = request.getPart("imagenEditar");
+
+
         
-        if(idProducto != null){
-            id = Integer.parseInt(idProducto);
+        if (idProducto != null && nombre != null && descripcion != null && precio != null && cantidad != null && imagen != null) {
+
+            //Obtenemos el nombre de la imagen
+            String nombreImagen = Paths.get(imagen.getSubmittedFileName()).getFileName().toString();
+
+            //Obtenemos los bytes de la imagen
+            byte[] datosImagen;
+            try (InputStream inputStream = imagen.getInputStream()) {
+                datosImagen = inputStream.readAllBytes();
+            }
+
+            gestiona.editarArticulo(Integer.parseInt(idProducto), nombre, descripcion, Double.parseDouble(precio), Integer.parseInt(cantidad), nombreImagen, datosImagen);
         }
-        if(nombre != null && descripcion != null && precio != null && cantidad != null){
-            gestiona.actualizarArticulo(id, nombre, descripcion, Double.parseDouble(precio), Integer.parseInt(cantidad));
-        }
-        
-        
+
         response.sendRedirect("articulos.jsp");
+        
+        
+  
     }
 
     @Override

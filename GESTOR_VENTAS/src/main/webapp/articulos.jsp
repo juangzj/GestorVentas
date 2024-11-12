@@ -41,33 +41,36 @@
             <td><%=a.getCantidad()%></td>
             <td><img src="data:image/png;base64,<%=imagenBase64%>" style="max-width: 100px; max-height: 80px; object-fit: cover;" /></td>
             <td>
-                <!-- Botón para abrir el modal de ver -->
-                <button type="button" class="btn btn-warning verArticulo-btn" 
-                        data-bs-toggle="modal" 
-                        data-bs-target="#exampleModalVer" 
-                        data-id="<%=a.getId()%>"
-                        data-nombre="<%= a.getNombre()%>"
-                        data-descripcion="<%= a.getDescripcion()%>"
-                        data-precio="<%= a.getPrecio()%>"
-                        data-cantidad="<%= a.getCantidad()%>" >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
-                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
-                    </svg>
-                </button>  
-                <!-- Botón para abrir el modal de editar -->
-                <button type="button" class="btn btn-secondary editarArticulo-btn" 
-                        data-bs-toggle="modal" 
-                        data-bs-target="#exampleModalEditar" 
-                        data-id="<%=a.getId()%>"
-                        data-nombre="<%= a.getNombre()%>"
-                        data-descripcion="<%= a.getDescripcion()%>"
-                        data-precio="<%= a.getPrecio()%>"
-                        data-cantidad="<%= a.getCantidad()%>" >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
-                    </svg>
-                </button>   
+                 <!-- Botón para abrir el modal de ver -->
+                    <button type="button" class="btn btn-warning verArticulo-btn" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#exampleModalVer" 
+                            data-id="<%=a.getId()%>"
+                            data-nombre="<%= a.getNombre()%>"
+                            data-descripcion="<%= a.getDescripcion()%>"
+                            data-precio="<%= a.getPrecio()%>"
+                            data-cantidad="<%= a.getCantidad()%>" 
+                            data-imagenBinarios="<%=imagenBase64%>">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                            <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                        </svg>
+                    </button>   
+                            <!-- Botón para abrir el modal de editar -->
+                            <button type="button" class="btn btn-secondary editarArticulo-btn" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#exampleModalEditar" 
+                                    data-id="<%=a.getId()%>"
+                                    data-nombre="<%= a.getNombre()%>"
+                                    data-descripcion="<%= a.getDescripcion()%>"
+                                    data-precio="<%= a.getPrecio()%>"
+                                    data-stock="<%= a.getCantidad()%>"
+                                    data-imagenBinarios="<%=imagenBase64%>"
+                                    >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+                                </svg>
+                            </button>   
                 <!-- Botón para eliminar un artículo -->
                 <button type="button" class="btn btn-danger eliminarArticulo-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<%=a.getId()%>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -88,18 +91,18 @@
     </tbody>
 </table>
 </div>
-<!-- Modal para agregar artículo --> 
+<!-- Modal para agregar artículo -->
 <div class="modal fade" id="exampleModalAgregarArticulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <!-- Encabezado azul claro -->
-            <div class="modal-header table-primary">
+            <!-- Encabezado oscuro -->
+            <div class="modal-header bg-dark text-white">
                 <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- Formulario para agregar un artículo -->
-                <form action="SvNuevoArticulo" method="POST"> 
+                <form action="SvNuevoArticulo" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="nombreArticulo" class="form-label">Nombre</label>
                         <input type="text" class="form-control" name="nombreAgregar" required>
@@ -113,9 +116,14 @@
                         <input type="number" class="form-control" name="precioAgregar" step="0.01" required>
                     </div>
                     <div class="mb-3">
-                        <label for="precioArticulo" class="form-label">Cantidad</label>
+                        <label for="cantidadArticulo" class="form-label">Cantidad</label>
                         <input type="number" class="form-control" name="cantidadAgregar" required>
                     </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Selecciona una imagen</label>
+                        <input class="form-control" type="file" id="formFile" name="imagenProducto" required>
+                    </div>
+            
                     <!-- Botón verde para agregar alineado a la derecha -->
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-success">Agregar</button>
@@ -152,79 +160,121 @@
     </div>
 </div>
 
-<!-- Modal para ver la información -->
+<!-- Modal para ver la información-->
 <div class="modal fade" id="exampleModalVer" tabindex="-1" aria-labelledby="exampleModalVerLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <!-- Encabezado azul claro -->
-      <div class="modal-header table-primary">
-        <h1 class="modal-title fs-5" id="exampleModalVerLabel">Producto</h1>
+      
+      <!-- Encabezado oscuro -->
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="exampleModalVerLabel">Producto</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      
+      <!-- Cuerpo del modal -->
       <div class="modal-body">
-        <!-- Mostrar información de un artículo -->
         <form>
-          <label for="modalNombre">ID:</label>
-          <input class="form-control" type="text" id="idVer" readonly><br>
-          <label for="modalNombre">Nombre:</label>
-          <input class="form-control" type="text" id="nombreVer" readonly><br>
-          <label for="modalFecha">Descripción:</label>
-          <input class="form-control" type="text" id="descripcionVer" readonly><br>
-          <label for="modalPuntuacion">Cantidad:</label>
-          <input class="form-control" type="text" id="cantidadVer" readonly><br>
+          <div class="mb-3">
+            <label for="idVer">ID:</label>
+            <input class="form-control" type="text" id="idVer" readonly>
+          </div>
+          
+          <div class="mb-3">
+            <label for="nombreVer">Nombre:</label>
+            <input class="form-control" type="text" id="nombreVer" readonly>
+          </div>
+          
+          <div class="mb-3">
+            <label>Imagen Producto:</label>
+            <div class="text-center">
+              <img id="imagenVer" src="" class="img-fluid" style="max-width: 200px; max-height: 150px; object-fit: cover;">
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="descripcionVer">Descripción:</label>
+            <input class="form-control" type="text" id="descripcionVer" readonly>
+          </div>
+          
+          <div class="mb-3">
+            <label for="cantidadVer">Cantidad:</label>
+            <input class="form-control" type="text" id="cantidadVer" readonly>
+          </div>
+          
         </form>
       </div>
+      
       <!-- Pie de modal -->
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
       </div>
+      
     </div>
   </div>
 </div>
 
-<!-- Modal Para Editar un artículo -->
+
+<!-- Modal para Editar un artículo -->
 <div class="modal fade" id="exampleModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Encabezado azul claro -->
-            <div class="modal-header table-primary">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="editarArticulo" method="POST">
-                <div class="modal-body">
-                    <p>¿Estás seguro de que deseas EDITAR el artículo con ID: <span id="articuloIdEditar"></span>?</p>
-
-                    <div class="form-group">
-                        <label>Nombre:</label>
-                        <input type="text" name="nombreEditar" id="nombreEditar" class="form-control" placeholder="Ingrese el nombre" autofocus required>
-                    </div><br>
-                    
-                    <div class="form-group">
-                        <label>Descripción:</label>
-                        <input type="text" name="descripcionEditar" id="descripcionEditar" class="form-control" placeholder="Ingrese la descripción" required>
-                    </div><br>
-                    
-                    <div class="form-group">
-                        <label>Precio:</label>
-                        <input type="number" name="precioEditar" id="precioEditar" class="form-control" placeholder="Ingrese el precio" required>
-                    </div><br>
-                    
-                    <div class="form-group">
-                        <label>Cantidad:</label>
-                        <input type="number" name="cantidadEditar" id="cantidadEditar" class="form-control" placeholder="Ingrese la cantidad" required>
-                    </div><br>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <!-- Botón gris para editar -->
-                    <button type="submit" class="btn btn-secondary">Editar</button>
-                </div>
-            </form>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <!-- Encabezado del modal -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Artículo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <!-- Formulario para editar artículo -->
+      <form action="editarArticulo" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">
+          
+          <p>¿Estás seguro de que deseas EDITAR el artículo con ID: <span id="articuloIdEditar"></span>?</p>
+          <input type="hidden" name="idEditar" id="idEditar">
+          
+          <!-- Campo para nombre -->
+          <div class="mb-3">
+            <label for="nombreEditar" class="form-label">Nombre:</label>
+            <input type="text" name="nombreEditar" id="nombreEditar" class="form-control" placeholder="Ingrese el nombre" required>
+          </div>
+          
+          <!-- Campo para imagen -->
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Selecciona una imagen:</label>
+            <input class="form-control" type="file" id="formFile" name="imagenEditar" required>
+          </div>
+          
+          <!-- Campo para descripción -->
+          <div class="mb-3">
+            <label for="descripcionEditar" class="form-label">Descripción:</label>
+            <input type="text" name="descripcionEditar" id="descripcionEditar" class="form-control" placeholder="Ingrese la descripción" required>
+          </div>
+          
+          <!-- Campo para precio -->
+          <div class="mb-3">
+            <label for="precioEditar" class="form-label">Precio:</label>
+            <input type="number" name="precioEditar" id="precioEditar" class="form-control" placeholder="Ingrese el precio" required>
+          </div>
+          
+          <!-- Campo para stock -->
+          <div class="mb-3">
+            <label for="stockEditar" class="form-label">Stock:</label>
+            <input type="number" name="stockEditar" id="stockEditar" class="form-control" placeholder="Ingrese la cantidad" required>
+          </div>
+          
         </div>
+        
+        <!-- Pie de modal -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Editar</button>
+        </div>
+        
+      </form>
     </div>
+  </div>
 </div>
+
 
 <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->                   
 
@@ -255,27 +305,62 @@
         });
     });
 </script>
-<!-- Scrip para obtener los datos de un articulo y mostrarlos en el modal -->
+<!-- Script para obtener los datos de un articulo y mostrarlos en el modal -->
 <script>
+$(document).ready(function(){
+    $('#exampleModalVer').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Botón que abrió el modal
+        
+        // Extraer datos del botón mediante data-*
+        var id = button.data('id');
+        var nombre = button.data('nombre');
+        var descripcion = button.data('descripcion');
+        var nombreImagen = button.data('nombreimagen'); // El nombre de la imagen
+        var precio = button.data('precio');
+        var stock = button.data('cantidad');
+        var imagenBinarios = button.data('imagenbinarios'); // La cadena base64 de la imagen
+        var extensionImagen = button.data('extensionimagen'); // La extensión de la imagen (jpg o png)
+
+        // Actualizar el contenido del modal
+        var modal = $(this);
+        modal.find('#idVer').val(id);
+        modal.find('#nombreVer').val(nombre);
+        modal.find('#descripcionVer').val(descripcion);
+        modal.find('#nombreImagenVer').val(nombreImagen);
+        modal.find('#precioVer').val(precio);
+        modal.find('#cantidadVer').val(stock);
+        
+        // Asignar la imagen en base64 al atributo src de la etiqueta <img>
+        modal.find('#imagenVer').attr('src', 'data:image/' + extensionImagen + ';base64,' + imagenBinarios);
+    });
+});
+
+</script>
+<!-- Scrip para mostrar la informacion en el modal de editar -->
+ <script>
     
     $(document).ready(function(){
     // Manejar el evento cuando se hace clic en el enlace de la modal
-    $('#exampleModalVer').on('show.bs.modal', function (event) {
+    $('#exampleModalEditar').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget); // Botón que abrió la modal
         var id = button.data('id');
         var nombre = button.data('nombre');
         var descripcion = button.data('descripcion');
         var precio = button.data('precio');
-        var cantidad = button.data('cantidad');
-        
+        var stock = button.data('stock');
+        var imagenBinarios = button.data('imagenbinarios'); // La cadena base64 de la imagen
+        var extensionImagen = button.data('extensionimagen'); // La extensión de la imagen (jpg o png)
         
         // Actualizar el contenido de la modal
         var modal = $(this);
-        modal.find('#idVer').val(id);
-        modal.find('#nombreVer').val(nombre);
-        modal.find('#descripcionVer').val(descripcion);
-        modal.find('#precioVer').val(precio);
-        modal.find('#cantidadVer').val(cantidad);
+        modal.find('#nombreEditar').val(nombre);
+        modal.find('#descripcionEditar').val(descripcion);
+        modal.find('#precioEditar').val(precio);
+        modal.find('#stockEditar').val(stock);
+        modal.find('#idEditar').val(id);
+        
+         // Asignar la imagen en base64 al atributo src de la etiqueta <img>
+        modal.find('#imagenEditar').attr('src', 'data:image/' + extensionImagen + ';base64,' + imagenBinarios);
     });
 });
 
@@ -303,26 +388,5 @@
         });
     });
 </script>
-<!-- Scrip para mostrar la informacion en el modal de editar -->
- <script>
-    
-    $(document).ready(function(){
-    // Manejar el evento cuando se hace clic en el enlace de la modal
-    $('#exampleModalEditar').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); // Botón que abrió la modal
-        var nombre = button.data('nombre');
-        var descripcion = button.data('descripcion');
-        var precio = button.data('precio');
-        var cantidad = button.data('cantidad');
-        
-        // Actualizar el contenido de la modal
-        var modal = $(this);
-        modal.find('#nombreEditar').val(nombre);
-        modal.find('#descripcionEditar').val(descripcion);
-        modal.find('#precioEditar').val(precio);
-        modal.find('#cantidadEditar').val(cantidad);
-    });
-});
 
-</script>
 <%@include file="libs/foother.jsp" %>
